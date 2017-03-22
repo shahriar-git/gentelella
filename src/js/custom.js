@@ -44,10 +44,12 @@ $(document).ready(function() {
             // prevent closing menu if we are on child menu
             if (!$li.parent().is('.child_menu')) {
                 $SIDEBAR_MENU.find('li').removeClass('active active-sm');
+                $SIDEBAR_MENU.find('li').removeClass('active active-sm current-page');
                 $SIDEBAR_MENU.find('li ul').slideUp();
             }
             
             $li.addClass('active');
+            $li.addClass('current-page');
 
             $('ul:first', $li).slideDown(function() {
                 setContentHeight();
@@ -71,7 +73,7 @@ $(document).ready(function() {
     });
 
     // check active menu
-    $SIDEBAR_MENU.find('a[href="' + CURRENT_URL + '"]').parent('li').addClass('current-page');
+   // $SIDEBAR_MENU.find('a[href="' + CURRENT_URL + '"]').parent('li').addClass('current-page');
 
     $SIDEBAR_MENU.find('a').filter(function () {
         return this.href == CURRENT_URL;
